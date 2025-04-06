@@ -1,22 +1,26 @@
-import React from "react";
-import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
-import HomeCards from "./components/HomeCards";
-import JobListings from "./components/JobListings";
-import ViewAllJobs from "./components/ViewAllJobs";
+import {
+  Route,
+  createBrowserRouter,
+  createRoutesFromElements,
+  RouterProvider,
+} from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import MainLayout from "./layouts/MainLayout";
+
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route path="/" element={<MainLayout />}>
+      <Route path="/" element={<HomePage />} />
+      {/*it creates a router to a path using the element h1 here, but it can be any component */}
+    </Route>
+  )
+);
 
 const App = () => {
   return (
     <>
-      {/*Import and using Navbar*/}
-      <Navbar />
-      {/* <!-- Hero Component--> */}
-      <Hero />
-      {/* <!-- Developers and Employers --> */}
-      <HomeCards />
-      {/* <!-- Browse Jobs --> */}
-      <JobListings />
-      <ViewAllJobs />
+      <RouterProvider router={router} />{" "}
+      {/* Now instead of passing individual components we are passing a router provider that points to those components*/}
     </>
   );
 };
