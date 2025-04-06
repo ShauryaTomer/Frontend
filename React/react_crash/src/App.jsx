@@ -14,6 +14,8 @@ const App = () => {
 
   return (
     <>
+      {" "}
+      {/*JSX should reurn one parent element, that's why we have go encase multilpe components in a fragment*/}
       <div className="text-5xl">App Test</div>
       <p>
         {/* conditional in JSX*/}
